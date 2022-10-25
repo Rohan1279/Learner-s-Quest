@@ -42,9 +42,12 @@ const Navbar = () => {
               </Link>
             </ul>
           </div>
-          <p className="normal-case text-2xl hidden lg:block">
+          <Link
+            to={"/"}
+            className="normal-case text-2xl hidden lg:block btn leading-10"
+          >
             Learner's Quest
-          </p>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
@@ -72,13 +75,16 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="navbar-end">
+        <div className="navbar-end  flex items-center">
+          <Link className="btn btn-outline mx-2" to={"/login"}>Login</Link>
+          <Link className="btn btn-outline mx-2" to={"/register"}>Register</Link>
+
           {/* swap theme begins*/}
           <label className="swap swap-rotate">
             <input type="checkbox" />
 
             <svg
-              className="swap-on fill-current w-10 h-10"
+              className="swap-on fill-current w-8 h-8"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
@@ -86,7 +92,7 @@ const Navbar = () => {
             </svg>
 
             <svg
-              className="swap-off fill-current w-10 h-10"
+              className="swap-off fill-currentw-8 h-8"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
@@ -110,9 +116,6 @@ const Navbar = () => {
                   Profile
                   <span className="badge">New</span>
                 </Link>
-              </li>
-              <li>
-                <Link to={"/"}>Settings</Link>
               </li>
               <li>
                 <Link to={"/"}>Logout</Link>
