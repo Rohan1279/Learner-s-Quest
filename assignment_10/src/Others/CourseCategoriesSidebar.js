@@ -24,14 +24,18 @@ const CourseCategoriesSidebar = () => {
           <NavLink
             to={`/courses/${category.id}`}
             className={({ isActive }) =>
-              isActive ? "flex hover:text-blue-500 justify-center  items-center transition-all   my-4 rounded-lg lg:p-2 scale-95 border border-gray-300" : "flex hover:text-blue-500 justify-center   shadow-lg items-center transition-all   my-4 rounded-lg lg:p-2 "
+              isActive
+                ? "flex text-[#400f29] justify-center  items-center transition-all   my-4 rounded-lg lg:p-2 opacity-80 border border-gray-300"
+                : "flex hover:text-[#400f29] justify-center shadow-lg items-center transition-all my-4 rounded-lg lg:p-2 "
             }
           >
             <div className="lg:w-1/3 ">
               <img src={category.img} alt="" className="rounded-lg" />
             </div>
             <div className="w-2/3 mx-2 hidden lg:block">
-              <h2 className="text-xl font-semibold">{category.category_name}</h2>
+              <h2 className="text-xl font-semibold">
+                {category.category_name}
+              </h2>
               <p className="text-sm leading-none">{category.description}</p>
             </div>
           </NavLink>

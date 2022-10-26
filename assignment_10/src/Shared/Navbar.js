@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="">
-      <div className="navbar bg-inherit">
+      <div className="navbar bg-inherit ">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -44,8 +44,22 @@ const Navbar = () => {
           </div>
           <Link
             to={"/"}
-            className="normal-case text-2xl hidden lg:block btn leading-10"
+            className="normal-case text-2xl hidden lg:block btn btn-secondary leading-10"
           >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             Learner's Quest
           </Link>
         </div>
@@ -76,8 +90,8 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end  flex items-center">
-          <Link className="btn btn-outline mx-2" to={"/login"}>Login</Link>
-          <Link className="btn btn-outline mx-2" to={"/register"}>Register</Link>
+          <Link className="mx-2 hidden lg:block" to={"/login"}>Login</Link>
+          <Link className="mx-2 hidden lg:block" to={"/register"}>Register</Link>
 
           {/* swap theme begins*/}
           <label className="swap swap-rotate">

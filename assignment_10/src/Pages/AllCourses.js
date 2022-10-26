@@ -13,7 +13,8 @@ const AllCourses = () => {
       <>
         {availableCourses.map((availableCourse) => (
           <div key={availableCourse.id}>
-            <img src={availableCourse.img} alt="" className="" />
+            <img src={availableCourse.img} alt="" className="rounded-xl
+            " />
             <div className="">
               <div className="flex items-center text-lg">
                 <>
@@ -33,7 +34,7 @@ const AllCourses = () => {
               <h3 className="text-2xl font-bold">{availableCourse.name}</h3>
               <p>
                 {availableCourse.description}{" "}
-                <Link to={`/course/${availableCourse.id}`} className="link link-hover ">Checkout this course🔗</Link>
+                <Link to={`/course/${availableCourse.id}`} className="link link-hover text-blue-600">Checkout this course🔗</Link>
               </p>
             </div>
             <div className=" my-4 flex justify-between items-center">
