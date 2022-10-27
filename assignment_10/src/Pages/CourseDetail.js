@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { HiClock, HiDownload, HiFolder, HiSupport } from "react-icons/hi";
-import {GiDiamondTrophy, GiTargetPrize} from "react-icons/gi";
-import { useLoaderData } from "react-router-dom";
+import { GiDiamondTrophy, GiTargetPrize } from "react-icons/gi";
+import { Link, Navigate, useLoaderData } from "react-router-dom";
 // import image from "../utils/CoursesDetailDefault.gif";
 const CourseDetail = () => {
   const courseData = useLoaderData();
@@ -23,8 +23,8 @@ const CourseDetail = () => {
     video,
   } = courseData;
   return (
-    <div className="h-fit m-2   rounded-xl  overflow-hidden">
-      <div className="grid grid-cols-10 items-center px-5">
+    <div className="h-fit m-2 ">
+      <header className="grid grid-cols-10 items-center px-5 shadow-lg rounded-xl bg-[#f5ebe0]">
         <div className="col-span-full lg:col-span-4  p-0">
           <img src={img} alt="" className="w-full rounded-xl" />
         </div>
@@ -71,28 +71,44 @@ const CourseDetail = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="border border-white lg:my-3 lg:grid lg:grid-cols-8 px-5">
-        <div className="lg:col-span-5 bg-blue-400 lg:text-left">
+      </header>
+      <div className="my-3 lg:grid lg:grid-cols-8 p-5 rounded-xl bg-[#f7ede2]">
+        <div className="lg:col-span-5  lg:text-left px-5 py-3">
           <h3 className=" text-3xl font-bold">Course description</h3>
-          <p className="text-lg leading-snug my-5 px-8 lg:mr-24">{description}</p>
+          <p className="text-lg leading-snug my-5 lg:mr-24">{description}</p>
         </div>
-        <div className="lg:col-span-3 bg-red-400 text-left">
-          <h4 className="text-center lg:text-center text-3xl font-bold">This course contains:</h4>
-          <div className="bg-green-200 w-3/5  mx-auto my-5 p-4">
-          <div>
-            <p className="text-lg"><HiClock className="inline "/> {time_period} hours on-demand video</p>
-            <p className="text-lg"><HiFolder className="inline "/> 5 articles</p>
-            <p className="text-lg"><HiDownload className="inline "/> 120 downloadable resources</p>
-            <p className="text-lg"><HiSupport className="inline "/> Full lifetime access</p>
-            <p className="text-lg"><GiTargetPrize className="inline "/> Certificate of completion</p>
-            <button className="btn btn-outline w-full mx-auto my-3 "><GiDiamondTrophy className="text-xl mx-2 text-amber-500"/> Get Premium access</button>
+        <div className="lg:col-span-3  text-left">
+          <h4 className="text-center lg:text-center text-3xl font-bold">
+            This course contains:
+          </h4>
+          <div className="bg-[#e3d5ca] w-3/5  mx-auto my-5 px-3 py-5 rounded-xl">
+            <div>
+              <p className="text-lg">
+                <HiClock className="inline " /> {time_period} hours on-demand
+                video
+              </p>
+              <p className="text-lg">
+                <HiFolder className="inline " /> 5 articles
+              </p>
+              <p className="text-lg">
+                <HiDownload className="inline " /> 120 downloadable resources
+              </p>
+              <p className="text-lg">
+                <HiSupport className="inline " /> Full lifetime access
+              </p>
+              <p className="text-lg">
+                <GiTargetPrize className="inline " /> Certificate of completion
+              </p>
+              <Link to={`/checkout/${id}`}>
+                <button className="btn btn-outline w-full mx-auto my-3 ">
+                  <GiDiamondTrophy className="text-xl mx-2 text-amber-500" />{" "}
+                  Get Premium access
+                </button>
+              </Link>
+            </div>
           </div>
-          </div>
-          
         </div>
       </div>
-      
     </div>
   );
 };

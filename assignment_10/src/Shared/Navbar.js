@@ -46,21 +46,7 @@ const Navbar = () => {
             to={"/"}
             className="normal-case text-2xl hidden lg:block btn btn-secondary leading-10"
           >
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            Learner's Quest
+         Learner's Quest
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

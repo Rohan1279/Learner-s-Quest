@@ -11,12 +11,12 @@ const Courses = ({ children }) => {
     <div>
       <p>Courses Page</p>
 
-      <div className="grid grid-cols-12 h-screen">
-        <div className="col-span-5 ">
+      <div className="grid grid-cols-12 h-fit">
+        <div className="col-span-full lg:col-span-5 ">
           <CourseCategoriesSidebar />
         </div>
 
-        <div className="col-span-7 m-2 shadow-2xl broder border-black rounded-xl overflow-hidden">
+        <div className="col-span-full lg:col-span-7 m-2 shadow-2xl broder border-black rounded-xl overflow-hidden">
           {/* <AllCourses /> */}
           {children ? (
             children
