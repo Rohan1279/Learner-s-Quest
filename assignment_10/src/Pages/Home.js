@@ -16,7 +16,7 @@ const Home = () => {
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
             <p className="mb-5">
-              This is a simple course content webpage with firebsae aut
+              This is a simple course content webpage with firebsae authentication and uses react router dom.
             </p>
             <button className="btn btn-primary">Get Started</button>
           </div>
