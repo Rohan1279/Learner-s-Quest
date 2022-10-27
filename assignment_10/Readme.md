@@ -4,9 +4,9 @@
 
 **Website's feature:**
 
-- This website simple programming related course contents
+- This website contains simple programming related course contents
 
-- It has firebase authentication built in
+- It has firebase authentication built-in
 
 - It has react-router-dom functionaliies
 
