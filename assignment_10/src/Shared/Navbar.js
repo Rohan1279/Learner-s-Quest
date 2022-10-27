@@ -150,13 +150,13 @@ const Navbar = () => {
                     <img
                       src={user.photoURL}
                       alt=""
-                      className="tooltip"
+                      className="tooltip tooltip-bottom"
                       data-tip={`${user.displayName}`}
                     />
                   </>
                 ) : (
                   <HiUser
-                    className="text-4xl tooltip"
+                    className="text-4xl tooltip tooltip-bottom"
                     data-tip="Login to see username"
                   />
                 )}
