@@ -25,8 +25,8 @@ const CourseCategoriesSidebar = () => {
             to={`/courses/${category.id}`}
             className={({ isActive }) =>
               isActive
-                ? "flex text-[#400f29] justify-center  items-center transition-all   my-4 rounded-lg lg:p-2 opacity-80 border border-gray-300"
-                : "flex hover:text-[#400f29] justify-center shadow-lg items-center transition-all my-4 rounded-lg lg:p-2 "
+                ? "flex text-[#400f29] justify-center  items-center transition-all  my-6 lg:ml-3 rounded-lg p-3 opacity-90  border border-[#c2b5bc] bg-[#f5ebe0]"
+                : "flex hover:text-[#400f29] justify-center shadow-md items-center transition-all my-4 rounded-lg lg:p-1 "
             }
           >
             <div className="lg:w-1/3 ">

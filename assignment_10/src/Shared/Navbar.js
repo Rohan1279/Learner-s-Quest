@@ -3,9 +3,10 @@ import { useContext } from "react";
 import { HiUser } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
-
+import websitelogo from "../utils/websitelogo.png";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+
   console.log(user);
 
   return (
@@ -31,28 +32,42 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              // dropdown-content
-              className="menu menu-compact dropdown-content shadow bg-base-300  rounded-lg w-24 text-lg my-3"
+              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-32 mt-4"
             >
-              <Link to={"/"}>
-                <li className="text-left hover:bg-slate-500 w-full">Main</li>
-              </Link>
-              <Link to={"/courses"}>
-                <li className="text-left hover:bg-slate-500 w-full">Courses</li>
-              </Link>
-              <Link to={"/faq"}>
-                <li className="text-left hover:bg-slate-500 w-full">FAQ</li>
-              </Link>
-              <Link to={"/blog"}>
-                <li className="text-left hover:bg-slate-500 w-full">Blog</li>
-              </Link>
+              <li>
+                <Link className="" to={"/"}>
+                  Main
+                </Link>
+              </li>
+              <li>
+                <Link className="" to={"/courses"}>
+                  Courses
+                </Link>
+              </li>
+              <li>
+                <Link className="" to={"/faq"}>
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link className="" to={"/blog"}>
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
           <Link
             to={"/"}
-            className="normal-case text-2xl hidden lg:block btn btn-secondary leading-10"
+            className=" normal-case text-2xl hidden lg:block leading-10 bg-amber-300 px-2 py-1 rounded-lg hover:bg-amber-400 active:scale-95 transition-all"
           >
-            Learner's Quest
+            <div className="flex justify-between items-center">
+              <img
+                src={websitelogo}
+                alt=""
+                className="w-12 h-12 rounded-full  mr-2"
+              />
+              <p className="font-bold font">Learner's Quest</p>
+            </div>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -75,9 +90,16 @@ const Navbar = () => {
         <div className="navbar-center">
           <Link
             to={"/"}
-            className="btn btn-ghost normal-case text-xl lg:hidden"
+            className=" normal-case text-xl block lg:hidden leading-10 bg-amber-300 px-2 py-1 rounded-lg hover:bg-amber-400 active:scale-95 transition-all"
           >
-            Learner's Quest
+            <div className="flex justify-between items-center">
+              <img
+                src={websitelogo}
+                alt=""
+                className="w-12 h-12 rounded-full mr-2 hidden lg:block"
+              />
+              <p className="font-bold">Learner's Quest</p>
+            </div>
           </Link>
         </div>
 
@@ -105,7 +127,7 @@ const Navbar = () => {
           {/* swap theme ends*/}
 
           {user?.email && user?.uid ? (
-            <div className="bg-[#fde4cf] px-2 py-1 rounded-lg mx-3 shadow-md">
+            <div className="bg-[#fde4cf] hidden lg:block  px-2 py-1 rounded-lg mx-3 shadow-md">
               <h4>Welcome,</h4>
               <p className="font-bold">{user?.displayName}</p>
             </div>
@@ -122,30 +144,52 @@ const Navbar = () => {
 
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-               {
-                user?.photoURL 
-                ?  <img
-                src={user?.photoURL}
-                alt=""
-              />
-                :<HiUser className="text-4xl"/>
-               }
+              <div className="w-10 rounded-full ">
+                {user && user.uid ? (
+                  <>
+                    <img
+                      src={user.photoURL}
+                      alt=""
+                      className="tooltip"
+                      data-tip={`${user.displayName}`}
+                    />
+                  </>
+                ) : (
+                  <HiUser
+                    className="text-4xl tooltip"
+                    data-tip="Login to see username"
+                  />
+                )}
               </div>
             </label>
             <ul
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li>
-                <Link to={"/"} className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </Link>
-              </li>
-              <li onClick={() => logOut()}>
-                <Link to={"/"}>Logout</Link>
-              </li>
+              {user && user.uid ? (
+                <>
+                  <li>
+                    <Link to={"/"} className="justify-between">
+                      Profile
+                      <span className="badge animate-pulse">New</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link onClick={() => logOut()} to={"/"}>
+                      Logout
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className="lg:hidden">
+                    <Link to={"/login"}>Login</Link>
+                  </li>
+                  <li className="lg:hidden">
+                    <Link to={"/register"}>Register</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

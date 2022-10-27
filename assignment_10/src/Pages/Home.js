@@ -7,7 +7,6 @@ const Home = () => {
   console.log(user)
   return (
     <div className="bg-red-100">
-      <p>Home Page</p>
       <div
         className="hero min-h-screen "
         style={{ backgroundImage: `/src/utils/Hero.png` }}
@@ -17,9 +16,7 @@ const Home = () => {
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
             <p className="mb-5">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              This is a simple course content wepage with firebsae aut
             </p>
             <button className="btn btn-primary">Get Started</button>
           </div>

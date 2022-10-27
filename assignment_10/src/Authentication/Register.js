@@ -22,12 +22,12 @@ const Register = () => {
     // create new user
     createUser(email, password)
       .then(() => {
-        toast.success("User created successfully");
         // update user profile
-        updateUserProfile(displayName, photoURL)
-          .then(() => {
+        updateUserProfile(profile)
+          .then((result) => {
             toast.success("User created successfully");
-            // form.reset();
+            console.log(result.user);
+            form.reset();
           })
           .catch((error) => console.log(error));
       })
@@ -43,7 +43,7 @@ const Register = () => {
   };
   return (
     <div>
-      <div className="flex justify-center items-center pt-8">
+      <div className="flex justify-center items-center pt-8 h-fit">
         <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-[#f5ebe0]  text-gray-900 shadow-lg">
           <div className="mb-8 text-center">
             <h1 className="my-3 text-4xl font-bold drop-shadow-md">Register</h1>

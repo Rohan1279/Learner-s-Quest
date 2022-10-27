@@ -7,7 +7,6 @@ import { AuthContext } from "../contexts/AuthProvider";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
-  const [userEmail, setUserEmail] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -37,7 +36,7 @@ const Login = () => {
           <form onSubmit={handleLogin} action="" className="space-y-6">
             <div className="space-y-4">
               <div>
-                <label htmlFor="email" className="block mb-2 text-sm">
+                <label htmlFor="email" className="block mb-2 text-sm text-left">
                   Email address
                 </label>
                 <input

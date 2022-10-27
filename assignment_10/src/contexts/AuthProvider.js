@@ -34,12 +34,9 @@ const AuthProvider = ({ children }) => {
   };
 
   //* update user profile
-  const updateUserProfile = (name, photoURL) => {
+  const updateUserProfile = (profile) => {
     setLoading(true);
-    return updateProfile(auth.createUser, {
-      displayName:name, 
-      photoURL:photoURL
-    });
+    return updateProfile(auth.currentUser, profile);
   };
   //* login with email & password
   const signIn = (email, password) => {
