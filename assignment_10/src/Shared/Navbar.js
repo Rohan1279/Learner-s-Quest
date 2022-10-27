@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { HiUser } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
 import websitelogo from "../utils/websitelogo.png";
 const Navbar = () => {
@@ -72,18 +72,50 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
-            <Link to={"/"} className="text-xl mx-5">
-              <li>Main</li>
-            </Link>
-            <Link to={"/courses"} className="text-xl mx-5">
+            <NavLink 
+             to={"/"} 
+             className={({ isActive }) =>
+             isActive
+               ? "text-xl mx-5 "
+               : "text-xl mx-5"
+           }
+              
+              >
+              Main
+            </NavLink>
+            <NavLink 
+             to={"/courses"} 
+             className={({ isActive }) =>
+             isActive
+               ? "text-xl mx-5 "
+               : "text-xl mx-5"
+           }
+              
+              >
               <li>Courses</li>
-            </Link>
-            <Link to={"/faq"} className="text-xl mx-5">
+            </NavLink>
+            <NavLink 
+             to={"/faq"} 
+             className={({ isActive }) =>
+             isActive
+               ? "text-xl mx-5 "
+               : "text-xl mx-5"
+           }
+              
+              >
               <li>FAQ</li>
-            </Link>
-            <Link to={"/blog"} className="text-xl mx-5">
+            </NavLink>
+            <NavLink 
+             to={"/blog"} 
+             className={({ isActive }) =>
+             isActive
+               ? "text-xl mx-5 "
+               : "text-xl mx-5"
+           }
+              
+              >
               <li>Blog</li>
-            </Link>
+            </NavLink>
           </ul>
         </div>
 

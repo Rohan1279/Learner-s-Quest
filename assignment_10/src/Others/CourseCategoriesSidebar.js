@@ -12,7 +12,7 @@ const CourseCategoriesSidebar = () => {
       .then((data) => setCategories(data));
   }, []);
   return (
-    <div className="min-h-screen m-2  shadow-2xl shadow-red-200 rounded-xl text-left p-5">
+    <div className="min-h-screen m-2  shadow-2xl  rounded-xl text-left p-5">
       <div className="flex justify-between items-center">
         <h2 className="text-3xl font-bold">Courses</h2>
         <button className="text-lg p-2 rounded-lg shadow-md">
