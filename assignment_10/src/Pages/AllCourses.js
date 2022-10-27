@@ -34,26 +34,27 @@ const AllCourses = () => {
                 <p className="text-gray-500 text-sm ml-2">
                   ({availableCourse.reviewsCount})
                 </p>
-              </div>
-              <h3 className="text-2xl font-bold">{availableCourse.name}</h3>
-              <p>
-                {availableCourse.description}{" "}
                 <Link
                   to={`/course/${availableCourse.id}`}
-                  className="link link-hover text-blue-600"
+                  className="link link-hover text-blue-600 ml-auto "
                 >
                   Checkout this course🔗
                 </Link>
+              </div>
+              <h3 className="text-2xl font-bold">{availableCourse.name}</h3>
+              <p className="text-justify">
+                {availableCourse.description}{" "}
+                
               </p>
             </div>
             <div className=" my-4 lg:flex justify-between items-center">
-              <div className="flex ">
+              <div className="lg:flex bg-[#fac9a1] p-2 rounded-lg my-2 lg:my-0 shadow-lg">
                 <img
                   src={availableCourse.instructor_img}
                   alt=""
-                  className="w-14 h-14 rounded-full"
+                  className="w-14 h-14 rounded-full mx-auto"
                 />
-                <div className="text-lg mx-3 leading-snug">
+                <div className="text-lg mx-3 leading-snug text-center lg:text-left">
                   <p className="font-bold ">
                     {availableCourse.instructor_name}
                   </p>
@@ -63,7 +64,7 @@ const AllCourses = () => {
                 </div>
               </div>
               <div>
-                <p className="text-2xl text-white font-extrabold bg-[#400f29] px-7 py-2 rounded-xl btn">
+                <p className="text-2xl text-white font-extrabold bg-[#400f29] px-7 py-2 rounded-md text-center">
                   $ {availableCourse.price}
                 </p>
               </div>

@@ -143,7 +143,13 @@ const Navbar = () => {
           )}
 
           <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <label
+              tabIndex={0}
+              className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom"
+              data-tip={`${
+                user?.displayName ? user.displayName : "Please, login"
+              }`}
+            >
               <div className="w-10 rounded-full ">
                 {user && user.uid ? (
                   <>
@@ -151,7 +157,7 @@ const Navbar = () => {
                       src={user.photoURL}
                       alt=""
                       className="tooltip tooltip-bottom"
-                      data-tip={`${user.displayName}`}
+                      data-tip="adsa"
                     />
                   </>
                 ) : (
