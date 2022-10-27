@@ -10,6 +10,7 @@ import FAQ from "../Pages/FAQ";
 import Home from "../Pages/Home";
 import CourseDetail from "../Pages/CourseDetail";
 import CheckOut from "../Pages/CheckOut";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -63,7 +64,11 @@ export const router = createBrowserRouter([
         path: "/checkout/:id",
         loader: ({ params }) =>
           fetch(`https://learners-quest.vercel.app/course/${params.id}`),
-        element: <CheckOut />,
+        element: (
+          <PrivateRoute>
+            <CheckOut />
+          </PrivateRoute>
+        ),
       },
     ],
   },

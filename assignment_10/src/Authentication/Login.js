@@ -1,8 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthProvider";
 
 const Login = () => {
-  
+  const { signIn } = useContext(AuthContext);
+  const [userEmail, setUserEmail] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signIn(email, password)
+      .then(() => {
+        toast.success("Login successfull");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => toast.error(error.message));
+  };
   return (
     <div>
       <p>Login Page</p>
@@ -14,11 +35,7 @@ const Login = () => {
               Sign in to access your account
             </p>
           </div>
-          <form
-            //   onSubmit={handleSubmit}
-            action=""
-            className="space-y-6"
-          >
+          <form onSubmit={handleLogin} action="" className="space-y-6">
             <div className="space-y-4">
               <div>
                 <label htmlFor="email" className="block mb-2 text-sm">

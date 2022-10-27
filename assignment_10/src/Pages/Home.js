@@ -6,7 +6,7 @@ const Home = () => {
   const {user} = useContext(AuthContext)
   console.log(user)
   return (
-    <div>
+    <div className="bg-red-100">
       <p>Home Page</p>
       <div
         className="hero min-h-screen "

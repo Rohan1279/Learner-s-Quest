@@ -3,8 +3,6 @@ import app from "../config/firebase.config";
 import {
   createUserWithEmailAndPassword,
   getAuth,
-  GithubAuthProvider,
-  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -36,9 +34,12 @@ const AuthProvider = ({ children }) => {
   };
 
   //* update user profile
-  const updateUserProfile = (profile) => {
+  const updateUserProfile = (name, photoURL) => {
     setLoading(true);
-    return updateProfile(auth.createUser, profile);
+    return updateProfile(auth.createUser, {
+      displayName:name, 
+      photoURL:photoURL
+    });
   };
   //* login with email & password
   const signIn = (email, password) => {
@@ -60,6 +61,7 @@ const AuthProvider = ({ children }) => {
 
   const authInfo = {
     user,
+    loading,
     createUser,
     authenticateWithProvider,
     updateUserProfile,

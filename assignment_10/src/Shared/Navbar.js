@@ -1,11 +1,13 @@
 import React from "react";
 import { useContext } from "react";
+import { HiUser } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
 
 const Navbar = () => {
-  const {user} = useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
   console.log(user);
+
   return (
     <div className="">
       <div className="navbar bg-inherit ">
@@ -50,7 +52,7 @@ const Navbar = () => {
             to={"/"}
             className="normal-case text-2xl hidden lg:block btn btn-secondary leading-10"
           >
-         Learner's Quest
+            Learner's Quest
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -80,11 +82,8 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end  flex items-center">
-          <Link className="mx-2 hidden lg:block" to={"/login"}>Login</Link>
-          <Link className="mx-2 hidden lg:block" to={"/register"}>Register</Link>
-
           {/* swap theme begins*/}
-          <label className="swap swap-rotate">
+          <label className="swap swap-rotate mr-4 shadow-md p-1 rounded-lg ">
             <input type="checkbox" />
 
             <svg
@@ -105,10 +104,33 @@ const Navbar = () => {
           </label>
           {/* swap theme ends*/}
 
+          {user?.email && user?.uid ? (
+            <div className="bg-[#fde4cf] px-2 py-1 rounded-lg mx-3 shadow-md">
+              <h4>Welcome,</h4>
+              <p className="font-bold">{user?.displayName}</p>
+            </div>
+          ) : (
+            <>
+              <Link className="mx-2 hidden lg:block" to={"/login"}>
+                Login
+              </Link>
+              <Link className="mx-2 hidden lg:block" to={"/register"}>
+                Register
+              </Link>
+            </>
+          )}
+
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src="https://placeimg.com/80/80/people" />
+               {
+                user?.photoURL 
+                ?  <img
+                src={user?.photoURL}
+                alt=""
+              />
+                :<HiUser className="text-4xl"/>
+               }
               </div>
             </label>
             <ul
@@ -121,7 +143,7 @@ const Navbar = () => {
                   <span className="badge">New</span>
                 </Link>
               </li>
-              <li>
+              <li onClick={() => logOut()}>
                 <Link to={"/"}>Logout</Link>
               </li>
             </ul>
