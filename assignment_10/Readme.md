@@ -1,18 +1,18 @@
-**Learner's Quest** 
+**Learner's Quest**
 
-**Live site link** : [Learner's Quest]() 
+**Live site link** : [Learner's Quest]()
 
-**Website's feature:** 
+**Website's feature:**
 
-*This website simple programming related course contents 
+- This website simple programming related course contents
 
-*It has firebase authentication built in
+- It has firebase authentication built in
 
-*It has react-router-dom functionaliies 
+- It has react-router-dom functionaliies
 
-*Private/protected route is implemented in some pages 
+- Private/protected route is implemented in some pages
 
-*User can download course content sample in PDF format
+- User can download course content sample in PDF format
 
 **Technologies used:**
 
@@ -22,8 +22,8 @@
 
 3. CSS Component library: daisyUI
 
-4. React npm packages: 
-    * React router
-    * React hot toast
-    * Firebase
-    * React to pdf
+4. React npm packages:
+   - React router
+   - React hot toast
+   - Firebase
+   - React to pdf
