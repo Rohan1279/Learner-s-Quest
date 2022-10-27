@@ -1,15 +1,13 @@
-import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import CourseCategoriesSidebar from "../Others/CourseCategoriesSidebar";
-import { HiLink, HiStar } from "react-icons/hi";
+import { HiStar } from "react-icons/hi";
 const AllCourses = () => {
   const availableCourses = useLoaderData();
-  // console.log(availableCourses[0].id);
   return (
-    <div className="bg-[#f5ebe0] lg:h-fit shadow-2xl rounded-xl text-left p-5">
+    <div className="bg-[#f5ebe0] lg:h-[830px] overflow-scroll shadow-2xl rounded-xl text-left p-5">
       <h2 className="text-3xl font-bold text-center lg:text-left mb-4">
         Available Courses: {availableCourses.length}
       </h2>
+      {/* Available courses found will be shown here */}
       <div className="">
         {availableCourses.map((availableCourse) => (
           <div key={availableCourse.id}>
@@ -42,10 +40,7 @@ const AllCourses = () => {
                 </Link>
               </div>
               <h3 className="text-2xl font-bold">{availableCourse.name}</h3>
-              <p className="text-justify">
-                {availableCourse.description}{" "}
-                
-              </p>
+              <p className="text-justify">{availableCourse.description} </p>
             </div>
             <div className=" my-4 lg:flex justify-between items-center">
               <div className="lg:flex bg-[#fac9a1] p-2 rounded-lg my-2 lg:my-0 shadow-lg">

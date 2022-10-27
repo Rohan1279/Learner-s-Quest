@@ -33,6 +33,7 @@ const Login = () => {
               Sign in to access your account
             </p>
           </div>
+          {/* Login form starts from here */}
           <form onSubmit={handleLogin} action="" className="space-y-6">
             <div className="space-y-4">
               <div>

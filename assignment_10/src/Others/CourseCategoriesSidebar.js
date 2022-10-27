@@ -19,6 +19,7 @@ const CourseCategoriesSidebar = () => {
           <HiSearch />
         </button>
       </div>
+      {/* All the categories will be shown here */}
       {categories.map((category) => (
         <div key={category.id}>
           <NavLink

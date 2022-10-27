@@ -49,6 +49,7 @@ const Register = () => {
             <h1 className="my-3 text-4xl font-bold drop-shadow-md">Register</h1>
             <p className="text-sm text-gray-500">Create a new account</p>
           </div>
+          {/* login form starts from here */}
           <form onSubmit={handleSubmit} action="" className="space-y-4">
             <div className="space-y-4">
               <div>
