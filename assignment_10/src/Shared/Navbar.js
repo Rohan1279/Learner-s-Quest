@@ -1,7 +1,11 @@
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthProvider";
 
 const Navbar = () => {
+  const {user} = useContext(AuthContext)
+  console.log(user);
   return (
     <div className="">
       <div className="navbar bg-inherit ">

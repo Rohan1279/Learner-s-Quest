@@ -1,6 +1,10 @@
 import React from "react";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthProvider";
 // import Hero from "/src/utils/Hero.png";
 const Home = () => {
+  const {user} = useContext(AuthContext)
+  console.log(user)
   return (
     <div>
       <p>Home Page</p>
