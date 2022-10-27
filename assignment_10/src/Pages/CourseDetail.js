@@ -3,8 +3,16 @@ import { useState } from "react";
 import { HiClock, HiDownload, HiFolder, HiSupport } from "react-icons/hi";
 import { GiDiamondTrophy, GiTargetPrize } from "react-icons/gi";
 import { Link, Navigate, useLoaderData } from "react-router-dom";
+import Pdf from "react-to-pdf";
+
 // import image from "../utils/CoursesDetailDefault.gif";
 const CourseDetail = () => {
+  const ref = React.createRef();
+  const options = {
+    orientation: 'landscape',
+    unit: 'in',
+    format: [14,7]
+};
   const courseData = useLoaderData();
   const {
     category,
@@ -22,13 +30,14 @@ const CourseDetail = () => {
     time_period,
     video,
   } = courseData;
+
   return (
-    <div className="h-fit m-2 ">
+    <div className="h-fit m-2" ref={ref}>
       <header className="grid grid-cols-10 items-center px-5 shadow-lg rounded-xl bg-[#f5ebe0]">
         <div className="col-span-full lg:col-span-4  p-0">
           <img src={img} alt="" className="w-full rounded-xl" />
         </div>
-        <div className="col-span-full h-[600px] lg:h-auto lg:col-span-6 flex flex-col gap-y-4 p-3">
+        <div className="col-span-full h-[600px] lg:h-auto lg:col-span-6 flex flex-col  p-3">
           <h2 className="lg:text-left text-3xl font-bold">{name}</h2>
           <div className="lg:text-left my-3">
             <span className="badge badge-success badge-lg mx-1 my-1">
@@ -41,6 +50,31 @@ const CourseDetail = () => {
               <span className="font-bold mx-1">{students}</span> students
             </span>
           </div>
+
+          <Pdf targetRef={ref} filename={`${name}.pdf`} options={options} >
+            {({ toPdf }) => (
+              <div
+                className="bg-lime-400 hover:bg-lime-500 active:text-sm transition-all w-44 text-center mx-auto lg:mx-0 py-2 font-semibold rounded-lg cursor-pointer"
+                onClick={toPdf}
+              >
+                Download details
+                <HiDownload className="inline align-baseline ml-2 text-lg" />
+              </div>
+            )}
+          </Pdf>
+
+          {/* <Pdf targetRef={ref} filename={`${name}.pdf`}>
+            {({ toPdf, targetRef }) => (
+              <div
+                className="bg-lime-400 hover:bg-lime-500 active:text-sm transition-all w-44 text-center mx-auto lg:mx-0 py-2 font-semibold rounded-lg cursor-pointer"
+                onClick={toPdf}
+              >
+                Download details
+                <HiDownload className="inline align-baseline ml-2 text-lg" />
+              </div>
+            )}
+          </Pdf> */}
+
           <div className="flex flex-col w-full lg:flex-row justify-between items-center">
             <div className="">
               <p className="underline underline-offset-4 decoration-sky-600 hover:decoration-blue-400 lg:text-left mb-4 text-lg">
@@ -72,7 +106,7 @@ const CourseDetail = () => {
           </div>
         </div>
       </header>
-      <div className="my-3 lg:grid lg:grid-cols-8 p-5 rounded-xl bg-[#f7ede2]">
+      <div className="h-fit my-3 lg:grid lg:grid-cols-8 p-5 rounded-xl bg-[#f7ede2]">
         <div className="lg:col-span-5  lg:text-left px-5 py-3">
           <h3 className=" text-3xl font-bold">Course description</h3>
           <p className="text-lg leading-snug my-5 lg:mr-24">{description}</p>
@@ -81,7 +115,7 @@ const CourseDetail = () => {
           <h4 className="text-center lg:text-center text-3xl font-bold">
             This course contains:
           </h4>
-          <div className="bg-[#e3d5ca] w-3/5  mx-auto my-5 px-3 py-5 rounded-xl">
+          <div className="bg-[#fafafa] w-3/5 mx-auto my-5 px-3 py-5 rounded-xl shadow-lg">
             <div>
               <p className="text-lg">
                 <HiClock className="inline " /> {time_period} hours on-demand
